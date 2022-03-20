@@ -15,11 +15,10 @@ def verify():
     payload=content.get("payload")
     pk=payload.get("pk")
     platform=payload.get("platform")
-    message=json.dumps(payload)
+    msg=json.dumps(payload)
     result=False
     if platform=="Ethereum":
-        eth_encoded_msg =eth_account.messages.encode_defunct(text=payload)
-        eth_sig_obj = eth_account.Account.sign_message(eth_encoded_msg,eth_sk)
+        eth_encoded_msg =eth_account.messages.encode_defunct(text=msg)
         if eth_account.Account.recover_message(eth_encoded_msg ,signature=signature)==pk:
             print("Eth sig verifies!")
             result=True
@@ -27,7 +26,7 @@ def verify():
         #algo_sk = 'VDw/rBQ6ETI8kkpsXa3KQ7q3FFVKdNgL9Oem59c2Nixe4LyxB6otPKwHKpcWcJ2QxrBjPVj1XgON58ssS7I/JA=='
         #algo_pk = 'L3QLZMIHVIWTZLAHFKLRM4E5SDDLAYZ5LD2V4A4N47FSYS5SH4SAFAIYVQ'
         #algo_sig_str = algosdk.util.sign_bytes(payload.encode('utf-8'), algo_sk)
-        if algosdk.util.verify_bytes(message.encode('utf-8'), signature, pk):
+        if algosdk.util.verify_bytes(msg.encode('utf-8'), signature, pk):
             print("Algo sig verifies!")
             result=True
             
