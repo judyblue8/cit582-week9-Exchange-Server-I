@@ -18,8 +18,9 @@ def verify():
     message=json.dumps(payload)
     result=False
     if platform=="Ethereum":
-        eth_encoded_message =eth_account.messages.encode_defunct(text=message)
-        if eth_account.Account.recover_message(eth_encoded_message ,signature=signature)==pk:
+        eth_encoded_msg =eth_account.messages.encode_defunct(text=payload)
+        eth_sig_obj = eth_account.Account.sign_message(eth_encoded_msg,eth_sk)
+        if eth_account.Account.recover_message(eth_encoded_msg ,signature=signature)==pk:
             print("Eth sig verifies!")
             result=True
     elif platform =="Algorand":
