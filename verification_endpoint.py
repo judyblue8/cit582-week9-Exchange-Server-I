@@ -13,9 +13,9 @@ def verify():
     content = request.get_json(silent=True)
     sig = content.get("sig")
     pload = content.get("payload")
-    pk=payload.get("pk")
-    platform=payload.get("platform")
-    msg=json.dumps(payload)
+    pk=pload.get("pk")
+    platform=pload.get("platform")
+    msg=json.dumps(pload)
     result = False
     if platform == "Ethereum":
         eth_encoded_msg =eth_account.messages.encode_defunct(text = msg)
