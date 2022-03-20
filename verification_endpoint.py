@@ -19,7 +19,7 @@ def verify():
     result = False
     if platform == "Ethereum":
         eth_encoded_msg =eth_account.messages.encode_defunct(text = msg)
-        if eth_account.Account.recover_message(eth_encoded_msg ,sig = sig) == pk:
+        if eth_account.Account.recover_message(eth_encoded_msg ,sig = signiture) == pk:
             print("Ethereum signiture is verified!")
             result = True
     elif platform =="Algorand":
