@@ -25,7 +25,7 @@ def verify():
     elif platform =="Algorand":
         #algo_sk = 'VDw/rBQ6ETI8kkpsXa3KQ7q3FFVKdNgL9Oem59c2Nixe4LyxB6otPKwHKpcWcJ2QxrBjPVj1XgON58ssS7I/JA=='
         #algo_pk = 'L3QLZMIHVIWTZLAHFKLRM4E5SDDLAYZ5LD2V4A4N47FSYS5SH4SAFAIYVQ'
-        #algo_sig_str = algosdk.util.sign_bytes(payload.encode('utf-8'), algo_sk)
+        #algo_sig_str = algosdk.util.sign_bytes(pload.encode('utf-8'), algo_sk)
         if algosdk.util.verify_bytes(msg.encode('utf-8'), sig, pk):
             print("Algorand signiture is verified!")
             result = True
