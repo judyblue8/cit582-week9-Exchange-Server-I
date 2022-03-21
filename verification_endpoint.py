@@ -23,8 +23,8 @@ def verify():
             print("Eth sig verifies!")
             result=True
     elif platform =="Algorand":
-        #algo_sk = 'VDw/rBQ6ETI8kkpsXa3KQ7q3FFVKdNgL9Oem59c2Nixe4LyxB6otPKwHKpcWcJ2QxrBjPVj1XgON58ssS7I/JA=='
-        #algo_pk = 'L3QLZMIHVIWTZLAHFKLRM4E5SDDLAYZ5LD2V4A4N47FSYS5SH4SAFAIYVQ'
+        #algo_sk = 't0oauFzGhzUxkgKboxhxlpgTQoHgE0y5/uzz/zr1jnimyyZnoLkmCJgqmY5+ntM7WFhLxAr8u7bCd1wmgX4OgA=='
+        #algo_pk = 'U3FSMZ5AXETARGBKTGHH5HWTHNMFQS6EBL6LXNWCO5OCNAL6B2AFXLZMTY'
         #algo_sig_str = algosdk.util.sign_bytes(pload.encode('utf-8'), algo_sk)
         if algosdk.util.verify_bytes(message.encode('utf-8'), signature, pk):
             print("Algo sig verifies!")
